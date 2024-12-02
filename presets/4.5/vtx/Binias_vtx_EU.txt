@@ -1,15 +1,19 @@
-#$ TITLE: binis's VTX
+#$ TITLE: binis's VTX Analog
+#$ FIRMWARE_VERSION: 4.3
+#$ FIRMWARE_VERSION: 4.4
 #$ FIRMWARE_VERSION: 4.5
 #$ CATEGORY: VTX
 #$ STATUS: COMMUNITY
-#$ KEYWORDS:  vtx,eu vtx, switch channels, switch powerlevel
+#$ KEYWORDS:  vtx, EU, SmartAudio, Switch Channel with RC, Change Power with RC
 #$ AUTHOR: binia
 
 #$ PARSER: MARKED
 
-#$ DESCRIPTION: 
-#$ DESCRIPTION: 
-#$ DESCRIPTION: # VTX tables EU
+#$ DESCRIPTION:
+#$ DESCRIPTION:
+#$ DESCRIPTION:
+#$ DESCRIPTION:
+##$ DESCRIPTION: # VTX tables EU
 #$ DESCRIPTION: ## change channels and powermode with RC
 #$ DESCRIPTION: 
 #$ DESCRIPTION: <br>
@@ -21,12 +25,9 @@
 #$ DESCRIPTION: <br><br>
 #$ DESCRIPTION: Using the VTX tables as provided may be in breach of your local RF laws. It is up to the end user to research and comply with local regulations and in using these presets the user assumes all liability associated with breaching local regulations.
 
-
-
-#$ FORCE_OPTIONS_REVIEW: TRUE
-
 #$ INCLUDE: presets/4.3/vtx/defaults_vtx_tables.txt
 
+#$ FORCE_OPTIONS_REVIEW: TRUE
 
 
 # vtxtable
@@ -38,18 +39,69 @@ vtxtable band 3 UNKNOWN  U FACTORY    0    0    0    0    0    0    0    0
 vtxtable band 4 FATSHARK F FACTORY 5740 5760 5780 5800 5820 5840 5860    0
 vtxtable band 5 RACEBAND R FACTORY    0    0 5732 5769 5806 5843    0    0
 vtxtable band 6 IMD6     I CUSTOM  5732 5765 5828 5840 5866 5740    0    0
-vtxtable powerlevels 6
-vtxtable powervalues 25 200 400 600 800 1000
-vtxtable powerlabels 25 200 400 600 800 1K
 
-# vtx
-vtx 0 4 0 0 1 900 1100
-vtx 1 4 0 0 2 1100 1300
-vtx 2 4 0 0 3 1300 1500
-vtx 3 4 0 0 4 1500 1700
-vtx 4 4 0 0 5 1700 1900
-vtx 5 4 0 0 6 1900 2000
-vtx 6 3 5 3 0 1100 1200
-vtx 7 3 5 4 0 1200 1400
-vtx 8 3 5 5 0 1400 1600
-vtx 9 3 5 6 0 1600 1700
+
+
+#$ OPTION_GROUP BEGIN: Select VTX model
+
+    #$ OPTION BEGIN (UNCHECKED): All VTXs (except unlocked Freestyle and TX5M.1)
+		vtxtable powerlevels 1
+		vtxtable powervalues 25 200 400 600 800 1000
+		vtxtable powerlabels 25 200 400 600 800 1K
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): Unlocked Freestyle
+		vtxtable powerlevels 6
+		vtxtable powervalues 25 200 400 600 800 1000
+		vtxtable powerlabels 25 200 400 600 800 1K
+    #$ OPTION END
+
+#$ OPTION_GROUP END
+
+#$ OPTION_GROUP BEGIN: Select control on RC
+
+    #$ OPTION BEGIN (UNCHECKED): Powerlevel Level 1 
+        vtx 0 4 0 0 1 900 1100
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): Powerlevel Level 2  
+         vtx 1 4 0 0 2 1100 1300
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): Powerlevel Level 3 
+        vtx 2 4 0 0 3 1300 1500
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): Powerlevel Level 4 
+        vtx 3 4 0 0 4 1500 1700
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): Powerlevel Level 5  
+        vtx 4 4 0 0 5 1700 19000
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): Powerlevel Level 6 
+        vtx 5 4 0 0 6 1900 2000
+    #$ OPTION END
+
+
+#$ OPTION_GROUP END
+
+#$ OPTION_GROUP BEGIN: Select Raceband Channel on RC
+    #$ OPTION BEGIN (UNCHECKED): Raceband 3 
+        vtx 6 3 5 3 0 1100 1200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): Raceband 4
+        vtx 7 3 5 4 0 1200 1400
+    #$ OPTION END
+	
+	#$ OPTION BEGIN (UNCHECKED): Raceband 5
+        vtx 8 3 5 5 0 1400 1600
+    #$ OPTION END
+	
+	#$ OPTION BEGIN (UNCHECKED): Raceband 6
+        vtx 9 3 5 6 0 1600 1700
+    #$ OPTION END
+
+#$ OPTION_GROUP END
