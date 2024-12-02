@@ -25,7 +25,6 @@
 #$ DESCRIPTION: <br><br>
 #$ DESCRIPTION: Using the VTX tables as provided may be in breach of your local RF laws. It is up to the end user to research and comply with local regulations and in using these presets the user assumes all liability associated with breaching local regulations.
 
-#$ INCLUDE: presets/4.3/vtx/defaults_vtx_tables.txt
 
 #$ FORCE_OPTIONS_REVIEW: TRUE
 
